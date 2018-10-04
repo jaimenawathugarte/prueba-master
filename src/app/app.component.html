@@ -1,11 +1,311 @@
+<header class="header-chile">
+		
+		<div class="container">
+
+			<span class="logo-del-chile"></span>
+
+			<ul class="hidden-xs hidden-sm enlaces pull-right">
+				<li class="bordesepara"> Enlace 1 </li>
+				<li> Enlace 2 </li>
+			</ul>
+
+			<img (click)="togglemenu()" style="position: absolute;right: 1rem;top: 1rem;" class="visible-xs visible-sm" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QMraHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjMtYzAxMSA2Ni4xNDU2NjEsIDIwMTIvMDIvMDYtMTQ6NTY6MjcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM1QkFBQkRCQzgxNTExRTg5ODFFRDU3Nzg0RTRDQTc4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM1QkFBQkRDQzgxNTExRTg5ODFFRDU3Nzg0RTRDQTc4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzVCQUFCRDlDODE1MTFFODk4MUVENTc3ODRFNENBNzgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzVCQUFCREFDODE1MTFFODk4MUVENTc3ODRFNENBNzgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAgICAgICAgICAgIDAwMDAwMDAwMDAQEBAQEBAQIBAQICAgECAgMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwP/wAARCAAjAC0DAREAAhEBAxEB/8QApAABAAMBAAAAAAAAAAAAAAAAAAYHCAkBAQEBAQEBAAAAAAAAAAAAAAAEBQMIBhAAAAAJCgIIAwkAAAAAAAAAAAIFBhYHFwgYAQMTBBQV1gkZWRKYESIjJahpqSohRGSFJjY3lyhoKUkRAAACBgYGBQoHAAAAAAAAAAERAAISAxMEIdIUBRUGMSKTpFUW0TJUlCZBYUKCRWWlVmYnkiMzYyRkJf/aAAwDAQACEQMRAD8A4cO26JTGTQi/1T4huI4k+hthKYzwJQWkTRBp/wB9+NC7uvG2/C9LTQ9hRB7UvXn+3vMDwfDNViPaYvVBpqHqdZpkvRI6TTzvJcr2ZXErfbKWoUJjSJE1raCM/KZUJefttPPB8BgZ33V+nt8SvwR713dHttPPB8BgPur9Pb4jwR713dHttPPB8BgPur9Pb4jwR713dHttPPB8BgPur9Pb4jwR713dKK/pNiV/1Ng8Yn/EuJWI1Nv0uYmzf7dvv6UNHx/hXsfHLR/ZgQGNpFb9RjzpJ4WtvtDDoX7MSI1+Fhn1mvMmWlbOLvtrlMwjrHVA509OtZXhwylEUgH4rZ3tbZ8mYXBiQVK6RCsKRzoNg0SoQynKSy0TazVKxJMz49BWqvOTQ/COIMLJszeYcvyD9aVnp6TczShNKLvnaiwGACBqrLAIGAgIGFICApnuLqvSZdA+lpaYeOR0LKu11gEqBIQAQEhAQHzpOdMfMm2934eU5fWAQm5typxO7+8ua6dsCvvsc1snlVGmPmTbe78PKcvrAIObcqcTu/vLmujAr77HNbJ5VRpj5k23u/DynL6wCDm3KnE7v7y5rowK++xzWyeVUaY+ZNt7vw8py+sAg5typxO7+8ua6MCvvsc1snlVILAw+y0ti8Hb0zYkJaWyeHxbTS2cX2jLQEERFKEJSTu+9bLYLd2FLS9QKOYsv2S326TsMSHEjO4bZNMNtMts6zJmVJEnHCr0j2azTFpZaYhrtMmTTJGydBkR0aUK2fofaU0ZhHVwqB8V6dVKvDelKMpAMNWzwi2zGMwhjFcqV0uFaUjmubB3Eshk2UqFopViuVihmBKetVicnR+KcHGGlTeXsvz8wtNT0jJvppYjXXcu11hIAADWWVERIAAAMaAAA0IcXreks7BzLTMw7cqmSqrxdUAOkSABAAMaRSdanGZNuEPw82K+sfBPyllThl392c1E7Y7ffbJravKyNTjMm3CH4ebFfWPgcpZU4Zd/dnNRGO332ya2rysjU4zJtwh+HmxX1j4HKWVOGXf3ZzURjt99smtq8rI1OMybcIfh5sV9Y+ByllXhl392c1EY7ffbJvavKyQWOd9lpbZ4w3pmwoSzVrEQa2mls5vtJkATtLkoQlJO8LqtVht3b0VL1wo5duCyWCwydhiRIcF3DbJlthlltnVaIyoMk5Yteke02mYtLDLcRdpkzZaaNk6SMjpI01Q7a6bllLNUyaB7PD5tcMC3y0OcMh2KQgMeAXUhgpNOgtEogDtKMg5KgbBxJIbVRqZW6KtNCS1O3WWc6Z2ZHllx71vrNspPLy913LbJFUmXtscumjVAR/LXVFZVlYRVp0kYUCl8ld9xv5ZV7OXjAmBM1IDxdmkQDWVEAEwIaNBl5EvOBDJg36PS5esxgGdzHnz5c+IS9VK8JyxxfdXvSiBDJg36PS5esxgDmPPny58Ql6qMJyxxfdXvSiBDJg36PS5esxgDmPPny58Ql6qMJyxxfdXvSiBDJg36PS5esxgDmLPny58Ql6qMJyxxfdXvSlFQn5ZkSrMNWn9urFE5iigOX/8AnIm9wsKYmkic/gzv5J7RdfyVHT9YNHGs24Ta8F/1LQxZ7Y5/SYONFZY62pDJr0jJJMPuK2wMR/hwmotneddoobBtdXWaMvJpTlkH2KYCAIQBCAIQBCAIT//Z
+">
+			
+	
+		</div>
+
+		<ul 
+			*ngIf="!hola" style="
+			width: 100%;
+			height: 150px;
+			background-color: #002157;
+			list-style: none;
+			margin-top: 16px;
+			position: relative;
+			z-index: 9;
+			color: white;
+			text-align: center;
+			font-size: 30px;
+			font-family: arial;"
+
+			 class="visible-xs visible-sm">
+							<li style="margin-top:1rem;margin-bottom: 1rem;">Enlace 1</li>
+							<li>Enlace 2</li>
+						</ul>
+
+</header>
+
 <div class="container">
-  Welcome to {{ title }} <br>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="titulo"> Titulo </h1>
+		</div>
+	</div>
 
 </div>
+
+
+<div class="container caja">
+	
+	<div class="row">
+		
+		<h2 class="titulo-caja"> Titulo Caja </h2>
+
+	</div>
+
+	<div style="border-top:3px solid #e6e6e8;border-left:1px solid #e6e6e8;border-right:1px solid #e6e6e8;
+	border-bottom:1px solid #e6e6e8;padding-top:15px" class="row">
+
+		<div class="col-sm-4 items">
+			
+			<h3>Lorem Ipsum</h3>
+			<ul>
+				<li *ngFor="let texthome1 of home1">
+
+				    - {{ texthome1.TEXTO1 }}
+				      {{ texthome1.TEXTO2 }}
+				      {{ texthome1.TEXTO3 }}
+				      {{ texthome1.TEXTO4 }}
+				    
+	  			</li>
+  			</ul>
+			
+			
+
+		</div>
+
+		<div class="col-sm-8">
+			
+			<div class="cajab">
+
+				<div class="col-sm-8 items">
+				
+					<ul>
+
+						<li style="padding-top:5px;padding-bottom: 15px" *ngFor="let texthome2 of home2">
+
+						   <span class="dot"></span> 
+						    {{ texthome2.TEXTO1 }}
+						    {{ texthome2.TEXTO2 }}
+						    
+			  			</li>
+
+			  		</ul>
+
+				</div>
+
+				<div class="no-padding col-sm-4 items">
+
+					<ul>
+
+						<li>
+							- $200.000.000.000.000.000
+			  			</li>
+
+			  			<li style="margin-top:35px">
+							- $200.000.000.000.000.000
+			  			</li>
+
+			  		</ul>
+					
+				</div>
+
+			</div>
+
+		</div>
+		
+	</div>
+
+</div>
+
+<div class="container">
+	<div class="row">
+		<div style="height: 30px;"></div>
+	</div>
+</div>
+
+<div class="container totalitems">
+	
+	<span style="padding-top:10px;display: inline-block;"class="pull-left">
+		Total items: X 
+	</span>
+
+	<button  (click)="toggle()" type="button" class="btn btn-light pull-right  {{buttonName}}">
+		<span *ngIf="!show"> Abrir </span>
+		<span *ngIf="show"> Cerrar </span>
+	</button>
+
+</div>
+
+
+
+
+<div *ngIf="show" class="container" style="
+    background: #f1f1f3;
+    padding-bottom: 17px;
+">
+	<div class="row">
+		<div style="width:100%;height: 17px;"></div>
+	</div>
+
+	<div class="row">	
+		
+		<div class="form-group">
+		        <div class="col-sm-3 date">
+
+		            <div class="input-group input-append date" id="datePicker">
+		                <input placeholder="seleccione..." type="text" class="form-control" name="date" />
+		                <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+		            </div>
+
+		            <!-- <ngb-datepicker #dp (navigate)="date = $event.next"></ngb-datepicker>
+
+					<hr/>
+
+					<button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
+					<button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">To current month</button>
+					<button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo({year: 2013, month: 2})">To Feb 2013</button>
+
+					<hr/>
+
+					<pre>Month: {{ date.month }}.{{ date.year }}</pre>
+					<pre>Model: {{ model | json }}</pre> -->
+
+
+		        </div>
+
+
+
+
+		        <div class="col-sm-3 date">
+		            <div class="input-group input-append date" id="datePicker">
+		                <input placeholder="seleccione..." type="text" class="form-control" name="date" />
+		                <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+		            </div>
+		        </div>
+
+		        <div class="col-sm-3 date">
+				    <select class="form-control" id="exampleFormControlSelect1">
+				      <option>Seleccione...</option>
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+		        </div>
+
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div style="width:100%;height: 17px;"></div>
+	</div>
+
+	<div class="row">	
+		
+		<div class="form-group">
+			
+			<div class="col-sm-6 date">	
+			    <input type="text" class="form-control" id="" aria-describedby="" 
+			    placeholder="Busqueda General...">
+		    </div>
+
+		    <button style="font-family:arial;margin-right: 1rem;" type="button" class="btn btn-success pull-right">Buscar</button>
+		    
+		  </div>
+	</div>
+
+	
+
+
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div style="width:100%;height: 17px;"></div>
+	</div>
+</div>
+
+<div  class="container no-padding eloverflow">
+	
+	<!--Table-->
+	<table id="tablePreview" class="table table-hover table-sm">
+	<!--Table head-->
+	  <thead style="
+	    background: #f6f6f6;
+	    border-top: 1px solid #dcdcdc;
+	    color: black;
+	    border-bottom: 1px solid #dcdcdc;
+		">
+
+	    <tr>
+	      <th> </th>
+	      <th>LOREM</th>
+	      <th>Ipsum</th>
+	      <th>Dolor</th>
+	      <th>Sit</th>
+	      <th>Amet</th>
+	      
+	    </tr>
+	  </thead>
+	  <!--Table head-->
+	  <!--Table body-->
+	  <tbody>
+
+	    <tr *ngFor="let datostablad of datostabla">
+	      <th scope="row">
+	      	<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+	      </th>
+	      <td>{{ datostablad.Lorem }}</td>
+	      <td>{{ datostablad.Ipsum }}</td>
+	      <td>{{ datostablad.Dolor }}</td>
+	      <td>{{ datostablad.Sit }}</td>
+	      <td>{{ datostablad.Amet }}</td>
+	    </tr>
+	    
+	   
+	  </tbody>
+	  <!--Table body-->
+	</table>
+
+</div>
+
+
+<div class="container">	
+
+
+						<div class="page-nation">
+
+                                        <ul style="margin: auto;" class="pagination pagination-large">
+                                        <li class="disabled"><span>«</span></li>
+                                        <li class="active"><span>1</span></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                        <li><a href="#">9</a></li>
+                                        <li><a rel="next" href="#">»</a></li>
+                
+                                     </ul>
+                            </div>
+
+</div>
+
+<div class="container">
+	<div class="row">
+		<div style="width:100%;height: 17px;"></div>
+	</div>
+</div>
+
+
+
+
+
 
