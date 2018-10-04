@@ -1,21 +1,27 @@
-Prueba Ingreso Front-End Designer
+# Pruebachile
 
-Construya la pieza gráfica que se encuentra en el repositorio. Para ello haga fork y luego haga un commit inicial para poder tomar el tiempo que le lleva realizar la tarea. No olvidar la versión tablet.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
 
-Debe utilizar:
+## Development server
 
-- Bootstrap
-- Angular 1.3.x (puede ser otra versión)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Deseable:
+## Code scaffolding
 
-- Bootstrap UI
-- BEM
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-Las fuentes utilizadas en la pieza gráfica son Roboto y Arial para las tablas.
+## Build
 
-h1 -> 28px Roboto Condensed
-h2 -> 20px Roboto
-h3 -> 18px Roboto
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-body -> 14px
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
